@@ -1,0 +1,107 @@
+object Kolejka: TKolejka
+  Left = 16
+  Height = 593
+  Top = 136
+  Width = 650
+  Caption = 'Kolejka'
+  ClientHeight = 593
+  ClientWidth = 650
+  LCLVersion = '2.2.4.0'
+  object ListBoxKolejka: TListBox
+    Left = 50
+    Height = 350
+    Top = 70
+    Width = 250
+    ItemHeight = 0
+    TabOrder = 0
+  end
+  object ListBoxOperacje: TListBox
+    Left = 350
+    Height = 350
+    Top = 70
+    Width = 250
+    ItemHeight = 0
+    TabOrder = 1
+  end
+  object LabelKolejka: TLabel
+    Left = 136
+    Height = 25
+    Top = 32
+    Width = 65
+    Caption = 'Kolejka'
+    Font.CharSet = EASTEUROPE_CHARSET
+    Font.Color = clBlue
+    Font.Height = -19
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object LabelOperacje: TLabel
+    Left = 440
+    Height = 25
+    Top = 32
+    Width = 78
+    Caption = 'Operacje'
+    Font.CharSet = EASTEUROPE_CHARSET
+    Font.Color = clBlue
+    Font.Height = -19
+    Font.Pitch = fpVariable
+    Font.Quality = fqDraft
+    Font.Style = [fsBold]
+    ParentColor = False
+    ParentFont = False
+  end
+  object ButtonDodajWezel: TButton
+    Left = 50
+    Height = 25
+    Top = 440
+    Width = 100
+    Caption = 'Dodaj do kolejki'
+    OnClick = ButtonDodajWezelClick
+    TabOrder = 2
+  end
+  object ButtonUsunWezel: TButton
+    Left = 200
+    Height = 25
+    Top = 440
+    Width = 100
+    Caption = 'Usuń z kolejki'
+    TabOrder = 3
+  end
+  object ButtonPokazKolejke: TButton
+    Left = 50
+    Height = 25
+    Top = 488
+    Width = 100
+    Caption = 'Pokaż kolejkę'
+    TabOrder = 4
+  end
+  object ButtonInfo: TButton
+    Left = 50
+    Height = 25
+    Top = 552
+    Width = 75
+    Caption = 'Info'
+    OnClick = ButtonInfoClick
+    TabOrder = 5
+  end
+  object ButtonKoniec: TButton
+    Left = 225
+    Height = 25
+    Top = 552
+    Width = 75
+    Caption = 'Koniec'
+    OnClick = ButtonKoniecClick
+    TabOrder = 6
+  end
+  object ButtonPoliczWezly: TButton
+    Left = 200
+    Height = 25
+    Top = 488
+    Width = 100
+    Caption = 'Policz Węzły'
+    TabOrder = 7
+  end
+end
