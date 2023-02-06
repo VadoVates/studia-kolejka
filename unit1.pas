@@ -96,7 +96,9 @@ begin
   if (pierwszyWezel<>nil) then
      begin
           if (pierwszyWezel^.nastepny=nil) then ostatniWezel:=nil;
+          tymcz:=pierwszyWezel;
           pierwszyWezel:=pierwszyWezel^.nastepny;
+          dispose (tymcz);
           ListBoxKolejka.Clear;
           counter:=0;
           tymcz:=pierwszyWezel;

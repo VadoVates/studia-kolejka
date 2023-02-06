@@ -37,8 +37,7 @@ type
     procedure DodanieDoKolejki;
   private
     pierwszyWezel, ostatniWezel, tymcz : tWskaznik;
-    temp                        : word;
-    counter                     : word;
+    counter : word;
 
   public
 
@@ -97,7 +96,9 @@ begin
   if (pierwszyWezel<>nil) then
      begin
           if (pierwszyWezel^.nastepny=nil) then ostatniWezel:=nil;
+          temp:=pierwszyWezel;
           pierwszyWezel:=pierwszyWezel^.nastepny;
+          dispose (temp);
           ListBoxKolejka.Clear;
           counter:=0;
           tymcz:=pierwszyWezel;
