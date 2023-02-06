@@ -1,7 +1,7 @@
 object Kolejka: TKolejka
-  Left = 16
+  Left = 24
   Height = 593
-  Top = 136
+  Top = 76
   Width = 650
   Caption = 'Kolejka'
   ClientHeight = 593
@@ -68,6 +68,7 @@ object Kolejka: TKolejka
     Top = 440
     Width = 100
     Caption = 'Usuń z kolejki'
+    OnClick = ButtonUsunWezelClick
     TabOrder = 3
   end
   object ButtonPokazKolejke: TButton
@@ -76,6 +77,7 @@ object Kolejka: TKolejka
     Top = 488
     Width = 100
     Caption = 'Pokaż kolejkę'
+    OnClick = ButtonPokazKolejkeClick
     TabOrder = 4
   end
   object ButtonInfo: TButton
@@ -102,6 +104,7 @@ object Kolejka: TKolejka
     Top = 488
     Width = 100
     Caption = 'Policz Węzły'
+    OnClick = ButtonPoliczWezlyClick
     TabOrder = 7
   end
 end

@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, CRT;
+  Windows, Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, ExtCtrls;
 
 type
   tWskaznik = ^tWezel;
@@ -31,11 +31,14 @@ type
     procedure ButtonDodajWezelClick(Sender: TObject);
     procedure ButtonInfoClick(Sender: TObject);
     procedure ButtonKoniecClick(Sender: TObject);
+    procedure ButtonPokazKolejkeClick(Sender: TObject);
+    procedure ButtonPoliczWezlyClick(Sender: TObject);
+    procedure ButtonUsunWezelClick(Sender: TObject);
     procedure DodanieDoKolejki;
   private
-    pierwszyWezel, ostatniWezel : tWskaznik;
+    pierwszyWezel, ostatniWezel, tymcz : tWskaznik;
     temp                        : word;
-    //counter                     : word;
+    counter                     : word;
 
   public
 
@@ -54,7 +57,6 @@ procedure TKolejka.ButtonDodajWezelClick(Sender: TObject);
 begin
   Randomize;
   DodanieDoKolejki;
-  temp:=ostatniWezel^.wartosc;
   ListBoxKolejka.Items.Add(IntToStr(ostatniWezel^.kolejnosc) + ' : ' + IntToStr(ostatniWezel^.wartosc));
 end;
 
@@ -69,6 +71,44 @@ end;
 procedure TKolejka.ButtonKoniecClick(Sender: TObject);
 begin
   Application.Terminate;
+end;
+
+procedure TKolejka.ButtonPokazKolejkeClick(Sender: TObject);
+begin
+  ListBoxOperacje.Clear;
+  tymcz:=pierwszyWezel;
+  while (tymcz<>nil) do
+  begin
+    ListBoxOperacje.Items.Add(IntToStr(tymcz^.kolejnosc) + ' : ' + IntToStr(tymcz^.wartosc));
+    tymcz:=tymcz^.nastepny;
+  end;
+end;
+
+procedure TKolejka.ButtonPoliczWezlyClick(Sender: TObject);
+begin
+  if (ostatniWezel<>nil) then
+    ListBoxOperacje.Items.Add('Ilość węzłów w kolejce to: ' + IntToStr(ostatniWezel^.kolejnosc))
+  else
+    ListBoxOperacje.Items.Add ('Nie ma węzłów w kolejce');
+end;
+
+procedure TKolejka.ButtonUsunWezelClick(Sender: TObject);
+begin
+  if (pierwszyWezel<>nil) then
+     begin
+          if (pierwszyWezel^.nastepny=nil) then ostatniWezel:=nil;
+          pierwszyWezel:=pierwszyWezel^.nastepny;
+          ListBoxKolejka.Clear;
+          counter:=0;
+          tymcz:=pierwszyWezel;
+          while (tymcz<>nil) do
+          begin
+               counter:=counter+1;
+               tymcz^.kolejnosc:=counter;
+               ListBoxKolejka.Items.Add(IntToStr(tymcz^.kolejnosc) + ' : ' + IntToStr(tymcz^.wartosc));
+               tymcz:=tymcz^.nastepny;
+          end;
+     end;
 end;
 
 procedure TKolejka.DodanieDoKolejki;
